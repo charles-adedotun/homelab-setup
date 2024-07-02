@@ -57,6 +57,10 @@ fi
   sudo systemctl start docker || error_exit "Failed to start Docker service."
   sudo systemctl enable docker || error_exit "Failed to enable Docker service."
 
+  # Add current user to Docker group
+  echo -e "${YELLOW}Adding user to Docker group...${NC}"
+  sudo usermod -aG docker $USER || error_exit "Failed to add user to Docker group."
+
   # Install Docker Compose (latest version)
   if ! command -v docker-compose &> /dev/null; then
     DOCKER_COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep -Po '"tag_name": "\K.*?(?=")')
