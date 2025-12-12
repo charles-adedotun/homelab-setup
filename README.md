@@ -94,7 +94,7 @@ Access all services via local IPs or DNS names
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/homelab-setup.git
+git clone https://github.com/charles-adedotun/homelab-setup.git
 cd homelab-setup
 
 # Copy example config
